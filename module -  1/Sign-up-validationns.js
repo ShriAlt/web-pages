@@ -3,24 +3,21 @@ function validateName() {
   const nameRegex = /^[a-zA-Z\s]+$/;
   const name = document.getElementById("firstName").value.trim();
   const errorSpan = document.getElementById("firstNameError");
-// const submitBtn = document.getElementById("submitBtn");
   if (!nameRegex.test(name)) {
     errorSpan.innerHTML = "Name should contain only letters and spaces.";
     submitBtn.disabled = true;
     return false;
   }
-
   if (name.length < 3 || name.length > 20) {
     errorSpan.innerHTML = "Name must be between 2 and 20 characters long.";
     submitBtn.disabled = true;
     return false;
-  }
+  }  
   else{
     errorSpan.innerHTML = "";
     submitBtn.disabled = false;
   return true;
   }
-
 }
 function validateLastName() {
   const nameRegex = /^[a-zA-Z\s]+$/;
@@ -48,7 +45,6 @@ function validateLastName() {
   const email=document.getElementById("email").value;
   const errorSpan =  document.getElementById("emailError");
   // const existEmail = await axios("");
-
   if(!email.includes("@") || !email.includes(".")){
     errorSpan.innerHTML="email must contain @ and ."
     submitBtn.disabled = true;
@@ -59,7 +55,6 @@ function validateLastName() {
     submitBtn.disabled = false;
   }  
 }
-
 function validatePhoneNumber(){
   // alert("yes working ")
   const number = document.getElementById("phoneNumber").value;
@@ -75,7 +70,6 @@ function validatePhoneNumber(){
     errorSpan.innerHTML="";
     submitBtn.disabled = false;
   }
-
 }
 function validateDOB() {
   const dob = new Date(document.getElementById("dob").value);
@@ -88,51 +82,54 @@ function validateDOB() {
     return false;
   }
   const age = today.getFullYear() - dob.getFullYear();
-
-  
   const isOldEnough = age >= 13;
   if (!isOldEnough) {
     spanError.innerHTML="age should be above 13 "
     submitBtn.disabled = true;
+    return false;
   }
   else{
     spanError.innerHTML="";
     submitBtn.disabled = false;
+    return true;
   }
 }
-function validateGender() {
-  const genderInputs = document.getElementsByName("gender");
-  const spanError = document.getElementById("genderError");
-  let selected = false;
-  // alert("yeahhhh")
-  for (let input of genderInputs) {
-    if (input.checked) {
-      selected = true;
-      break;
-    }
-  }
-  if (!selected) {
-    spanError.innerHTML = "Please select a gender before proceeding. Identity matters.";
-    submitBtn.disabled = true;
-    return false;
-  }
-  spanError.innerHTML = "";
-  submitBtn.disabled = false;
-  return true;
-}
-function validateCountry() {
-  const country = document.getElementById("country");
-  const countryError = document.getElementById("countryError");
+// function validateGender() {
+//   const genderInputs = document.getElementsByName("gender");
+//   const spanError = document.getElementById("genderError");
+//   let selected = false;
+//   // alert("yeahhhh")
+//   for (let input of genderInputs) {
+//     if (input.checked) {
+//       selected = true;
+//       break;
+//     }
+//   }
+//   if (!selected) {
+//     spanError.innerHTML = "Please select a gender before proceeding. Identity matters.";
+//     submitBtn.disabled = true;
+//     return false;
+//   }else{
+//     spanError.innerHTML = "";
+//     submitBtn.disabled = false;
+//     return true;
+//   }
+// }
+// function validateCountry() {
+//   const country = document.getElementById("country");
+//   const countryError = document.getElementById("countryError");
 
-  if (country.value === "") {
-    countryError.innerHTML = "Please select your country";
-    submitBtn.disabled = true;
-  }
-  else{
-    countryError.innerHTML = "";
-    submitBtn.disabled = false;
-  }
-}
+//   if (country.value === "") {
+//     countryError.innerHTML = "Please select your country";
+//     submitBtn.disabled = true;
+//     return false; 
+//   }
+//   else{
+//     countryError.innerHTML = "";
+//     submitBtn.disabled = false;
+//     return true;
+//   }
+// }
 
 function validateState() {
   const state = document.getElementById("state");
@@ -144,6 +141,7 @@ function validateState() {
   else{
   stateError.innerHTML = "";
   submitBtn.disabled = false;
+  return true;
   }
 }
 function validatePinCode() {
@@ -181,8 +179,7 @@ function validatePasswords() {
   submitBtn.disabled = false;
   return true;
 }
-function validateOnSubmit(){
 
-}
+fu
 
 
